@@ -21,17 +21,17 @@ public class IntToEng {
 	String[] tenR1 = {"ten ","eleven ","twelve ","thirteen ","fourteen ","fifteen ","sixteen ","seventeen ","eighteen ","nignteen "};
 	String[] tenR2 = {"twenty ","thirty ","fourty ","fifty ","sixty ","seventy ","eighty ","ninety "};
 	String hund = "hundred ";
-	if(number(n)==1){
+	if(numberOfDigits(n)==1){
 		ans = oneR[n];
-	}else if(number(n)==2&&n/10==1){
+	}else if(numberOfDigits(n)==2&&n/10==1){
 		ans = tenR1[n%10];
-	}else if(number(n)==2){
+	}else if(numberOfDigits(n)==2){
 		if(tenZero(n)){	
 			ans = tenR2[(n/10)-2];
 		}else{
 			ans = tenR2[(n/10)-2] + oneR[n%10];
 		}
-	}else if(number(n)==3){
+	}else if(numberOfDigits(n)==3){
 		if(tenZero(n)&&hundZero(n)){
 			ans = oneR[n/100]+hund;
 		}else if(!hundZero(n)){
@@ -49,7 +49,7 @@ public class IntToEng {
 	return ans;
 	}
 	
-	static int number(int n){
+	static int numberOfDigits(int n){
 		if(String.valueOf(n).length()==1){
 			return 1;
 		}else if(String.valueOf(n).length()==2){
