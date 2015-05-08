@@ -20,33 +20,55 @@ public class IntToEng {
 	String[] one = {"zero","one","two","three","four","five","six","seven","eight","nine"};
 	String[] two = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nignteen"};
 	String[] tens = {"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
+	String hund = "hundred";
 	if(number(n)==1){
 		ans = one[n];
 	}else if(number(n)==2 && n/10==1){
 		ans = two[n%10];
-	}else{
-		if(zero(n)){	
+	}else if(number(n)==2){
+		if(tenZero(n)){	
 			ans = tens[(n/10)-2];
 		}else{
 			ans = tens[(n/10)-2] + one[n%10];
 		}
+	}else{
+		if(tenZero(n)&&hundZero(n)){
+			ans = one[n/100]+hund;
+		}else if(!hundZero(n)){
+			if(tenZero(n)){
+				
+			}else{
+				
+			}
+		}
 	}
+
 	   	
 	return ans;
 	}
 	static int number(int n){
 		if(String.valueOf(n).length()==1){
 			return 1;
+		}else if(String.valueOf(n).length()==2){
+			return 2;
 		}else{
-		return 2;
+			return 3;
 		}
 	}
-	static boolean zero(int n){
+	static boolean tenZero(int n){
 		if(n%10 == 0){
 			return true;
 		}else{
-		return false;
+			return false;
 		}
 	}
+	static boolean hundZero(int n){
+		if(n%100==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }
 
