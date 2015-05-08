@@ -17,32 +17,32 @@ public class IntToEng {
 	// 数値を英訳する変換するメソッド
 	static String translateEng(int n) {
 	String ans = "";
-	String[] one = {"zero","one","two","three","four","five","six","seven","eight","nine"};
-	String[] two = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nignteen"};
-	String[] tens = {"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
-	String hund = "hundred";
+	String[] oneR = {"zero ","one ","two ","three ","four ","five ","six ","seven","eight ","nine "};
+	String[] tenR1 = {"ten ","eleven ","twelve ","thirteen ","fourteen ","fifteen ","sixteen ","seventeen ","eighteen ","nignteen "};
+	String[] tenR2 = {"twenty ","thirty ","fourty ","fifty ","sixty ","seventy ","eighty ","ninety "};
+	String hund = "hundred ";
 	if(number(n)==1){
-		ans = one[n];
-	}else if(number(n)==2 && n/10==1){
-		ans = two[n%10];
+		ans = oneR[n];
+	}else if(number(n)==2&&n/10==1){
+		ans = tenR1[n%10];
 	}else if(number(n)==2){
 		if(tenZero(n)){	
-			ans = tens[(n/10)-2];
+			ans = tenR2[(n/10)-2];
 		}else{
-			ans = tens[(n/10)-2] + one[n%10];
+			ans = tenR2[(n/10)-2] + oneR[n%10];
 		}
-	}else{
+	}else if(number(n)==3){
 		if(tenZero(n)&&hundZero(n)){
-			ans = one[n/100]+hund;
+			ans = oneR[n/100]+hund;
 		}else if(!hundZero(n)){
 			if(tenZero(n)){
 				if(n%100==10){
-					ans = one[n/100] + hund + two[0];
+					ans = oneR[n/100] + hund + tenR1[0];
 				}else{
-					ans = one[n/100] + hund + tens[(n%100)/10-2];
+					ans = oneR[n/100] + hund + tenR2[(n%100)/10-2];
 				}
 			}else{
-				ans = one[n/100] + hund + tens[(n%100)/10-2] + one[n%10];
+				ans = oneR[n/100] + hund + tenR2[(n%100)/10-2] + oneR[n%10];
 			}
 		}
 	}
@@ -72,6 +72,5 @@ public class IntToEng {
 			return false;
 		}
 	}
-
 }
 
