@@ -36,16 +36,19 @@ public class IntToEng {
 			ans = one[n/100]+hund;
 		}else if(!hundZero(n)){
 			if(tenZero(n)){
-				
+				if(n%100==10){
+					ans = one[n/100] + hund + two[0];
+				}else{
+					ans = one[n/100] + hund + tens[(n%100)/10-2];
+				}
 			}else{
-				
+				ans = one[n/100] + hund + tens[(n%100)/10-2] + one[n%10];
 			}
 		}
 	}
-
-	   	
 	return ans;
 	}
+	
 	static int number(int n){
 		if(String.valueOf(n).length()==1){
 			return 1;

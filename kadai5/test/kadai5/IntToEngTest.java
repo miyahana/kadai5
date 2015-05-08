@@ -37,5 +37,19 @@ public class IntToEngTest {
 		String actual = ite.translateEng(58);
 		assertThat(actual,is(expected));
 	}
+	@Test
+	public void translateEng‚Å290‚ð‰p–ó‚·‚é() {
+		IntToEng ite = new IntToEng();
+		String expected = "twohundredninety";
+		String actual = ite.translateEng(290);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEng‚Å486‚ð‰p–ó‚·‚é() {
+		IntToEng ite = new IntToEng();
+		String expected = "fourhundredeightysix";
+		String actual = ite.translateEng(486);
+		assertThat(actual,is(expected));
+	}
 
 }
