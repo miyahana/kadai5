@@ -10,10 +10,10 @@ import org.junit.Test;
 public class IntToEngTest {
 
 	@Test
-	public void translateEng‚Å10‚ð‰p–ó‚·‚é() {
+	public void translateEng‚Å6‚ð‰p–ó‚·‚é() {
 		IntToEng ite = new IntToEng();
-		String expected = "ten";
-		String actual = ite.translateEng(10);
+		String expected = "six";
+		String actual = ite.translateEng(6);
 		assertThat(actual,is(expected));
 	}
 	@Test
@@ -21,6 +21,20 @@ public class IntToEngTest {
 		IntToEng ite = new IntToEng();
 		String expected = "fifteen";
 		String actual = ite.translateEng(15);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEng‚Å30‚ð‰p–ó‚·‚é() {
+		IntToEng ite = new IntToEng();
+		String expected = "thirty";
+		String actual = ite.translateEng(30);
+		assertThat(actual,is(expected));
+	}
+	@Test
+	public void translateEng‚Å58‚ð‰p–ó‚·‚é() {
+		IntToEng ite = new IntToEng();
+		String expected = "fiftyeight";
+		String actual = ite.translateEng(58);
 		assertThat(actual,is(expected));
 	}
 

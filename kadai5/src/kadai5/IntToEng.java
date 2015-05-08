@@ -19,10 +19,17 @@ public class IntToEng {
 	String ans = "";
 	String[] one = {"zero","one","two","three","four","five","six","seven","eight","nine"};
 	String[] two = {"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nignteen"};
+	String[] tens = {"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
 	if(number(n)==1){
 		ans = one[n];
-	}else{
+	}else if(number(n)==2 && n/10==1){
 		ans = two[n%10];
+	}else{
+		if(zero(n)){	
+			ans = tens[(n/10)-2];
+		}else{
+			ans = tens[(n/10)-2] + one[n%10];
+		}
 	}
 	   	
 	return ans;
@@ -33,6 +40,13 @@ public class IntToEng {
 		}else{
 		return 2;
 		}
-	}	
+	}
+	static boolean zero(int n){
+		if(n%10 == 0){
+			return true;
+		}else{
+		return false;
+		}
+	}
 }
 
